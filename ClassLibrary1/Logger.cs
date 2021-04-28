@@ -35,5 +35,13 @@ namespace CrestronUtilities
         {
             ErrorLog.Warn(format(callerFilePath, callerLineNumber, callerMember, message));
         }
+
+        public static void Console(String message,
+            [CallerFilePath] string callerFilePath = "",
+            [CallerLineNumber] long callerLineNumber = 0,
+            [CallerMemberName] string callerMember = "")
+        {
+            CrestronConsole.PrintLine(format(callerFilePath, callerLineNumber, callerMember, message));
+        }
     }
 }
