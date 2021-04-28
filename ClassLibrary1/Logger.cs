@@ -3,9 +3,9 @@ using System.Runtime.CompilerServices;
 using Crestron.SimplSharp;
 
 
-namespace Utility
+namespace CrestronUtilities
 {
-    public static class Utility
+    public static class Logger
     {
         static string format(string path, long linenumber, string member, string message)
         {
