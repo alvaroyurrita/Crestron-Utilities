@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Crestron.SimplSharp;
 using Crestron.SimplSharp.CrestronIO;
 
 namespace CrestronUtilities
@@ -24,8 +20,7 @@ namespace CrestronUtilities
                     {
                         ApplicationDirectory = Path.DirectorySeparatorChar.ToString();
                         var NvramDir = Path.Combine(ApplicationDirectory, "nvram");
-                        var CurrentDirectory = Directory.GetApplicationDirectory();
-                        var SlotNo = Regex.Match(CurrentDirectory, @"(?<=[aA]pp)\d\d").Value;
+                        var SlotNo = InitialParametersClass.RoomId;
                         RootDirectory = Path.Combine(NvramDir, string.Format("Slot_{0:00}", SlotNo));
                     }
                     else

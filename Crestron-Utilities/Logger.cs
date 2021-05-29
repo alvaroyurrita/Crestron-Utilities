@@ -17,7 +17,8 @@ namespace CrestronUtilities
             var CurrentDirectory = Directory.GetApplicationDirectory();
             var NewLine = CrestronEnvironment.NewLine;
             var Files = String.Join(NewLine, Directory.GetFiles(CurrentDirectory));
-            SlotNo = Regex.Match(CurrentDirectory, @"(?<=[aA]pp)\d\d").Value;
+            SlotNo = String.Format("{0:00}", InitialParametersClass.RoomId);
+            //SlotNo = Regex.Match(CurrentDirectory, @"(?<=[aA]pp)\d\d").Value;
             /* Finds the running program name. No longer needed. Use SlotNo instead. 
             var Found = Regex.Match(Files, @"(?<=[aA]pp\d\d[\\\/]).*(?=.bin)", System.Text.RegularExpressions.RegexOptions.Multiline);
             if (Found.Success)
@@ -33,7 +34,7 @@ namespace CrestronUtilities
         static string format(string path, long linenumber, string member, string message)
         {
             var ProgName = Regex.Match(path, @"([^\\\/]+)$").Value;
-            return String.Format($"[{SlotNo:00}-{ProgName}-{member}-{linenumber}] {message}");
+            return String.Format($"[{SlotNo}-{ProgName}-{member}-{linenumber}] {message}");
         }
 
         public static void Error(String message,
