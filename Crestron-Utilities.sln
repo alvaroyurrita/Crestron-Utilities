@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crestron-Utlities", "ClassLibrary1\Crestron-Utlities.csproj", "{68FC746A-C61A-4568-8389-283B3D601CA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crestron-Utlities", "Crestron-Utilities\Crestron-Utlities.csproj", "{68FC746A-C61A-4568-8389-283B3D601CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingOnCrestron", "TestingOnCrestron\TestingOnCrestron.csproj", "{36DE7902-BBAB-4AD2-A220-4A3CF49F9054}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingWindows", "TestingWindows\TestingWindows.csproj", "{E495E61D-AA5A-4C53-9CFD-899F9DCD6400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{68FC746A-C61A-4568-8389-283B3D601CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68FC746A-C61A-4568-8389-283B3D601CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68FC746A-C61A-4568-8389-283B3D601CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36DE7902-BBAB-4AD2-A220-4A3CF49F9054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36DE7902-BBAB-4AD2-A220-4A3CF49F9054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36DE7902-BBAB-4AD2-A220-4A3CF49F9054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36DE7902-BBAB-4AD2-A220-4A3CF49F9054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E495E61D-AA5A-4C53-9CFD-899F9DCD6400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E495E61D-AA5A-4C53-9CFD-899F9DCD6400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E495E61D-AA5A-4C53-9CFD-899F9DCD6400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E495E61D-AA5A-4C53-9CFD-899F9DCD6400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

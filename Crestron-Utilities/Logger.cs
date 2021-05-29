@@ -1,15 +1,39 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using Crestron.SimplSharp;
+using Crestron.SimplSharp.CrestronIO;
 
 
 namespace CrestronUtilities
 {
     public static class Logger
     {
+        private static string SlotNo = "";
+       // private static string ProgName = "";
+
+        static Logger()
+        {
+            var CurrentDirectory = Directory.GetApplicationDirectory();
+            var NewLine = CrestronEnvironment.NewLine;
+            var Files = String.Join(NewLine, Directory.GetFiles(CurrentDirectory));
+            SlotNo = Regex.Match(CurrentDirectory, @"(?<=[aA]pp)\d\d").Value;
+            /* Finds the running program name. No longer needed. Use SlotNo instead. 
+            var Found = Regex.Match(Files, @"(?<=[aA]pp\d\d[\\\/]).*(?=.bin)", System.Text.RegularExpressions.RegexOptions.Multiline);
+            if (Found.Success)
+            {
+                var ProgName = Found.Value;
+            }
+            if (Files.Contains("ProgramInfo.config"))
+            {
+                var ProgramInfo = File.ReadToEnd(Path.Combine(CurrentDirectory, "ProgramInfo.config"), System.Text.Encoding.UTF8);
+                ProgName = Regex.Match(ProgramInfo, @"(?<=SystemName>).*(?=<)").Value;
+            }*/
+        }
         static string format(string path, long linenumber, string member, string message)
         {
-            return String.Format("[*TCL*] {0}: {1} [{2}] - {3}", path, linenumber, member, message);
+            var ProgName = Regex.Match(path, @"([^\\\/]+)$").Value;
+            return String.Format($"[{SlotNo:00}-{ProgName}-{member}-{linenumber}] {message}");
         }
 
         public static void Error(String message,

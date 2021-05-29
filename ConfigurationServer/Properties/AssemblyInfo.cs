@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("utilities-library")]
-[assembly: AssemblyDescription("Basic utility for loggin")]
+[assembly: AssemblyTitle("ConfigurationServer")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DGI Technologies")]
-[assembly: AssemblyProduct("Crestron-Utilites")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ConfigurationServer")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("68fc746a-c61a-4568-8389-283b3d601ca2")]
+[assembly: Guid("736f0718-42f1-4e2f-b03d-c2375d09b9cd")]
 
 // Version information for an assembly consists of the following four values:
 //
