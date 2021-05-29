@@ -26,7 +26,7 @@ namespace CrestronUtilities
                         var NvramDir = Path.Combine(ApplicationDirectory, "nvram");
                         var CurrentDirectory = Directory.GetApplicationDirectory();
                         var SlotNo = Regex.Match(CurrentDirectory, @"(?<=[aA]pp)\d\d").Value;
-                        RootDirectory = Path.Combine(NvramDir, string.Format("Slot_{0:00}",SlotNo));
+                        RootDirectory = Path.Combine(NvramDir, string.Format("Slot_{0:00}", SlotNo));
                     }
                     else
                     {
@@ -40,28 +40,19 @@ namespace CrestronUtilities
                 }
                 FullFilenamePath = Path.Combine(RootDirectory, PartialFilenamePath);
             }
-            var FilenamePath = Path.GetDirectoryName(FullFilenamePath);
-            var PartialPaths = FilenamePath.Split(Path.DirectorySeparatorChar);
-            if (PartialPaths.Length == 0) return "";
+            var FilenameDirectoryPath = Path.GetDirectoryName(FullFilenamePath);
             try
-            {  
-                var TraversedPath = "";
-                foreach (var Pth in PartialPaths)
+            {
+                if (!Directory.Exists(FilenameDirectoryPath))
                 {
-                    if (Pth == "") { continue; }
-                    TraversedPath += Path.DirectorySeparatorChar.ToString() + Pth;
-                    if (Directory.Exists(TraversedPath)) continue;
-                    else
-                    {
-                        Directory.Create(TraversedPath);
-                        Logger.Warn($"Path {TraversedPath} did not exists. It has been created");
-                        Logger.Console($"Path {TraversedPath} did not exists. It has been created");
-                    }
+                    Directory.Create(FilenameDirectoryPath);
+                    Logger.Warn($"Path {FilenameDirectoryPath} did not exists. It has been created");
+                    Logger.Console($"Path {FilenameDirectoryPath} did not exists. It has been created");
                 }
             }
             catch (Exception)
             {
-                Logger.Warn($"Error Creating full path for {FullFilenamePath}");
+                Logger.Warn($"Error Creating full path for {FilenameDirectoryPath}");
                 return "";
             }
             if (File.Exists(FullFilenamePath)) return FullFilenamePath;
